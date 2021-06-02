@@ -37,7 +37,7 @@ void PortA_Init()
   GPIO_PORTA_DEN_R = 0xE0;        // 7) enable digital pins PA7-PA0
 }
 
-void port_f_init()
+void PortF_Init()
 {
   SYSCTL_RCGCGPIO_R |= 0X00000020;
   while ((SYSCTL_RCGCGPIO_R & 0X00000020) == 0)
