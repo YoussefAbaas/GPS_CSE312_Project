@@ -43,11 +43,11 @@ void port_f_init()
   while ((SYSCTL_RCGCGPIO_R & 0X00000020) == 0)
   {
   };
-  GPIO_PORT_LOCK_R = 0x4C4F434B; //unlock gpio reg
-  GPIO_PORT_CR_R = 0X1F;         //enable gpio port f control
-  GPIO_PORT_DIR_R = 0X0E;
-  GPIO_PORT_PUR_R = 0X11;
-  GPIO_PORT_DEN_R = 0X1F;
+  GPIO_PORTF_LOCK_R = 0x4C4F434B; //unlock gpio reg
+  GPIO_PORTF_CR_R = 0X1F;         //enable gpio port f control
+  GPIO_PORTF_DIR_R = 0X0E;
+  GPIO_PORTF_PUR_R = 0X11;
+  GPIO_PORTF_DEN_R = 0X1F;
 }
 
 void timer_init()
