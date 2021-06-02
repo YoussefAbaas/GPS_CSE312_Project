@@ -2,7 +2,6 @@
 #include "stdint.h"
 #include "stdio.h"
 #include "timer.h"
-#include "init.h"
 
 
 void lcd_command(char);
@@ -29,8 +28,7 @@ void lcd_command(char command)
 void lcd_init()
 	{ 
 		//delay(50);
-    PortB_Init();
-		PortA_Init();
+
 		lcd_command(0x38); //8 bit
 		delay(2);
 		lcd_command(0x0F); // turn on display
