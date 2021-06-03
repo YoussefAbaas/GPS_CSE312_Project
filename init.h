@@ -6,7 +6,7 @@
 #include "stdint.h"
 void PortB_Init(void);
 void PortA_Init(void);
-void port_f_init(void);
+void PortF_Init(void);
 void timer_init(void);
 
 void PortB_Init()
@@ -42,7 +42,7 @@ void PortF_Init()
   SYSCTL_RCGCGPIO_R |= 0X00000020;
   while ((SYSCTL_RCGCGPIO_R & 0X00000020) == 0)
   {
-  };
+  }
   GPIO_PORTF_LOCK_R = 0x4C4F434B; //unlock gpio reg
   GPIO_PORTF_CR_R = 0X1F;         //enable gpio port f control
   GPIO_PORTF_DIR_R = 0X0E;
