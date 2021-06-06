@@ -39,11 +39,11 @@ struct point get_coordinates(char rawData[],int length){
         }
     float latdeg  = (data[2][0] - '0')*10 +(data[2][1] - '0');
     float latmin  = (data[2][2] - '0')*10 +(data[2][3] - '0');
-    float latsec  = ((float)(data[2][5] - '0')*10 +(data[2][6] - '0'))/(60*100);
+    float latsec  = ((float)(data[2][5] - '0')*10 +(data[2][6] - '0'))*(60)/(100);
         
     float longdeg = (data[4][0] - '0')*100 +(data[4][1] - '0')*10 + (data[4][2] - '0');
     float longmin = (data[4][3] - '0')*10 +(data[4][4] - '0');
-    float longsec = ((float)(data[4][6] - '0')*10 +(data[4][7] - '0'))/(60*100);
+    float longsec = ((float)(data[4][6] - '0')*10 +(data[4][7] - '0'))*(60)/(100);
     struct point p1 ;
     if(data[6][0]== 0){
         p1.is_vaild =false;
