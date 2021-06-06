@@ -30,7 +30,6 @@ struct point get_coordinates(char rawData[],int length){
             int k = 0;
             for(int j = index1+1;j<index2;j++,k++){
                 data[num][k] = rawData[j];
-                printf("%c",data[num][k]);
             }
             printf("\n");
             num++;
