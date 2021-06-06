@@ -7,12 +7,12 @@
 #define R  6371000 // earth radius
 
 struct point{
-	int16_t latitude_deg;
-	int16_t latitude_min;
-	int16_t latitude_sec;
-	int16_t longitude_deg;
-	int16_t longitude_min;
-	int16_t longitude_sec;
+	float latitude_deg;
+	float latitude_min;
+	float latitude_sec;
+	float longitude_deg;
+	float longitude_min;
+	float longitude_sec;
 	bool is_vaild;
 };
 
