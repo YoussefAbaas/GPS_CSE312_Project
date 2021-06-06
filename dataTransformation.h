@@ -16,15 +16,52 @@ struct point{
 	bool is_vaild;
 };
 
-struct point get_coordinates(char rawData[]);
+struct point get_coordinates(char rawData[],int lenght);
 double calculate_distance(struct point point1 ,struct point point2, double *distance);
 
 
-
-
-struct point get_coordinates(char rawData[]){
-
+struct point get_coordinates(char rawData[],int length){
+    char  data[15][20];
+    int index1=0,index2=0;
+    int num=0;
+    for(int i = 0;i<length;i++){
+        if(rawData[i] == ','){
+            index2 = i;
+            int k = 0;
+            for(int j = index1+1;j<index2;j++,k++){
+                data[num][k] = rawData[j];
+                printf("%c",data[num][k]);
+            }
+            printf("\n");
+            num++;
+            index1 = index2;
+                
+            }
+        }
+    float latdeg  = (data[2][0] - '0')*10 +(data[2][1] - '0');
+    float latmin  = (data[2][2] - '0')*10 +(data[2][3] - '0');
+    float latsec  = ((float)(data[2][5] - '0')*10 +(data[2][6] - '0'))/(60*100);
+        
+    float longdeg = (data[4][0] - '0')*100 +(data[4][1] - '0')*10 + (data[4][2] - '0');
+    float longmin = (data[4][3] - '0')*10 +(data[4][4] - '0');
+    float longsec = ((float)(data[4][6] - '0')*10 +(data[4][7] - '0'))/(60*100);
+    struct point p1 ;
+    if(data[6][0]== 0){
+        p1.is_vaild =false;
+    }
+        
+        
+    p1.latitude_deg  = latdeg;
+	p1.latitude_min  = latmin;
+	p1.latitude_sec  = latsec;
+	    
+	p1.longitude_deg = longdeg;
+	p1.longitude_min = longmin;
+	p1.longitude_sec = longsec;
+    return p1;
 }
+
+
 
 double calculate_distance(struct point point1 ,struct point point2, double *distance){
 	double phi_1 = (point1.latitude_deg +  (double)(point1.latitude_min + (double)point1.latitude_sec/60) /60 ) * (PI / 180);
