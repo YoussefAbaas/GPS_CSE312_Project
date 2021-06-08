@@ -45,7 +45,7 @@ struct point get_coordinates(char rawData[],int length){
     float longmin = (data[4][3] - '0')*10 +(data[4][4] - '0');
     float longsec = ((float)(data[4][6] - '0')*10 +(data[4][7] - '0'))*(60)/(100);
     struct point p1 ;
-    if(data[6][0]== 0){
+    if(data[6][0]== '0'){
         p1.is_vaild =false;
     }
         
