@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #define PI 3.142857
-#define R  6371000 // earth radius
+#define R  6371000.0 // earth radius
 
 struct point {
 	float latitude_deg;
