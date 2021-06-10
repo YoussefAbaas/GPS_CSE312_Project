@@ -45,6 +45,7 @@ struct point get_coordinates(char rawData[], int length) {
 		p1.is_vaild = false;
 	}
 	else {
+		p1.is_vaild = true;
 		float latdeg = (data[0][0] - '0') * 10 + (data[0][1] - '0');
 		float latmin = (data[0][2] - '0') * 10 + (data[0][3] - '0');
 		float latsec = ((float)(data[0][5] - '0') * 1000 + (data[0][6] - '0') * 100 + (data[0][7] - '0') * 10 + (data[0][8] - '0')) * (60) / (10000);
