@@ -70,7 +70,7 @@ struct point get_coordinates(char rawData[], int length) {
 
 
 
-double calculate_distance(struct point point1, struct point point2, double* distance) {
+double calculate_distance(struct point point1, struct point point2) {
 	double phi_1 = (point1.latitude_deg + (double)(point1.latitude_min + (double)point1.latitude_sec / 60) / 60) * (PI / 180);
 	double phi_2 = (point2.latitude_deg + (double)(point2.latitude_min + (double)point2.latitude_sec / 60) / 60) * (PI / 180);
 
@@ -81,8 +81,7 @@ double calculate_distance(struct point point1, struct point point2, double* dist
 
 	double a = sin(delta_phi / 2) * sin(delta_phi / 2) + cos(phi_1) * cos(phi_2) * sin(delta_lamda / 2) * sin(delta_lamda / 2);
 	double c = 2 * atan2(sqrt(a), sqrt(1 - a));
-	*distance = *distance + c * R;
-	return *distance;
+	return c * R;
 }
 
 #endif // DATA_H_INCLUDED
