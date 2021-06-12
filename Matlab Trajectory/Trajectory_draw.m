@@ -122,6 +122,10 @@ function pushbutton3_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 global gParameter
 gParameter=0;
+global obj
+ fclose(obj);
+    delete(obj);
+    clear obj;
 
 function edit1_Callback(hObject, eventdata, handles)
 % hObject    handle to edit1 (see GCBO)
@@ -143,10 +147,7 @@ function edit1_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
-global obj
- fclose(obj);
-    delete(obj);
-    clear obj;
+
 
 
 
